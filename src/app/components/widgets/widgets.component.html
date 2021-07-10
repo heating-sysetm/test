@@ -1,0 +1,67 @@
+<!-- <div class="p-2">
+  <div class="row res-padd">
+    <div class="col-lg-3 col-md-6 col-sm-6 w0">
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6 widget w1">
+      <div class="w-card p-2">
+        <app-temp-one [changed]="changed"></app-temp-one>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6 widget w2">
+      <div class="w-card p-2">
+        <app-temp-two [changed]="changed"></app-temp-two>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6 widget w3">
+      <div class="w-card p-2">
+        <app-temp-three [changed]="changed"></app-temp-three>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div [class.rtl]="('dir' | translate) === 'rtl'">
+  <div class="row res-padd widget my-4" >
+    <div class="col-lg-3 col-md-6 col-sm-6  w2">
+      <div class="w-card p-2">
+        <!-- <mat-card class="card-menu mb-2">
+        <button mat-button [matMenuTriggerFor]="menu" class="w-100">
+          بویلرها
+          <i class="fa fa-sort-down mx-2"></i>
+        </button>
+        <mat-menu #menu="matMenu" yPosition="below" xPosition="before">
+          <button mat-menu-item>
+            <i class="fa fa-eye mx-2"></i>
+            مشاهده
+          </button>
+        </mat-menu>
+      </mat-card> -->
+        <div class="row px-4">
+          <div class="col-8 text-align">
+            <div class="title  px-2 mt-4">
+              <!-- <h4>{{ 'Dashboard.WidgetOne.Title' | translate }}</h4> -->
+              <h4>{{ 'Dashboard.Widgets.W1.Title' | translate }}</h4>
+            </div>
+            <div class="desc px-2 mt-3">
+              <!-- <p>{{ 'Dashboard.WidgetOne.Desc' | translate }}</p> -->
+              <p>{{ 'Dashboard.Widgets.W1.Status' | translate }}</p>
+            </div>
+          </div>
+
+          <div class="col-4 bg-blue pl-2">
+            <div class="power-btn">
+              <button class="power"><i class="fa fa-power-off"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6 widget w1"  *ngFor="let item of boylers;index as i;">
+      <div class="w-card p-2">
+        <app-temp-one [data]="list[i]"></app-temp-one>
+      </div>
+    </div>
+  </div>
+</div>

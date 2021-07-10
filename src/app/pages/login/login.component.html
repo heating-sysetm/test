@@ -1,0 +1,107 @@
+<app-loading *ngIf="loading"></app-loading>
+<div class="main">
+  <div [class.rtl]="('dir' | translate) === 'rtl'">
+    <div class="container">
+      <div class="box" dir="ltr">
+        <button mat-fab class="lang-btn" [matMenuTriggerFor]="menu">
+          {{ lang }}
+          <!-- <span class="typcn typcn-arrow-sorted-down"></span> -->
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="enLang()">En</button>
+          <button mat-menu-item (click)="faLang()">Fa</button>
+        </mat-menu>
+      </div>
+
+      <div class="login-container">
+        <div class="">
+          <div class="logo-container text-right">
+            <a class="text-center">
+              <img
+                class="logo img-responsive"
+                src="../../../assets/img/logo.png"
+              />
+            </a>
+            <p class="login-title text-center">
+              {{ "Login.Title" | translate }}
+            </p>
+          </div>
+        </div>
+        <div class="">
+          <div class="form-container">
+            <!-- title -->
+            <div class="form-title text-center my-4">
+              <h1 class="text">{{ "Login.SubTitle" | translate }}</h1>
+            </div>
+            <!-- form body -->
+            <div class="form-content pt-4">
+              <div class="form">
+                <form [formGroup]="userInfo">
+                  <div class="google-login mx-2">
+                    <button class="google-btn btn">
+                      {{ "Login.Form.Google" | translate }}
+                    </button>
+                  </div>
+                  <div class="devider">
+                    <hr />
+                    <p class="or text-center">
+                      {{ "Login.Form.Or" | translate }}
+                    </p>
+                  </div>
+                  <div class="form-input mx-2">
+                    <input
+                      formControlName="username"
+                      pattern="[a-zA-Z0-9-]+"
+                      minlength="4"
+                      maxlength="32"
+                      matTooltipPosition="right"
+                      [className]="usernameErr>0? 'input-err rounded-pill' : 'rounded-pill'"
+                      type="text"
+                      placeholder="{{ 'Login.Form.Username' | translate }}"
+                    />
+                  </div>
+                  <div class="form-input my-4 mx-2">
+                    <input
+                      formControlName="password"
+                      pattern="[a-zA-Z0-9-]+"
+                      minlength="4"
+                      maxlength="32"
+                      matTooltipPosition="right"
+                      [className]="passErr>0 ? 'input-err rounded-pill' : 'rounded-pill'"
+                      type="password"
+                      placeholder="{{ 'Login.Form.Password' | translate }}"
+                    />
+                  </div>
+
+                  <div class="check-box-container mt-2 mb-4 row">
+                    <div class="col-6 checkbox">
+                      <mat-checkbox
+                        formControlName="autoLogin"
+                        class="example-margin text "
+                        >{{ "Login.Form.LoggedIn" | translate }}</mat-checkbox
+                      >
+                    </div>
+                    <div class="col-6 forgotbox">
+                      <a class="forgot" href="#">{{
+                        "Login.Form.Forgot" | translate
+                      }}</a>
+                    </div>
+                  </div>
+                  <div class="form-action mx-2">
+                    <button
+                      mat-button
+                      class="login-btn rounded-pill"
+                      (click)="login()"
+                    >
+                      {{ "Login.Form.Login" | translate }}
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

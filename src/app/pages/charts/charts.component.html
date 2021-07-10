@@ -1,0 +1,37 @@
+<!-- <app-column-chart></app-column-chart> -->
+<div class="ch-main">
+    <div class="filter">
+        <app-date-picker></app-date-picker>
+    </div>
+    <div class="charts-content px-4">
+        <div class="first-chart chart-card p-2" *ngIf="showChart">
+            <app-column-basic></app-column-basic>
+        </div>
+        <div class="other-charts my-2">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 my-2" *ngFor="let item of temp_data; index as i;">
+                    <div class="chart-card p-2" *ngIf="showChart&& temp_data[i].data.length>0&&i<4">
+                        <app-column-rotated [data]="temp_data[i]"></app-column-rotated>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="chart-card p-2">
+                        <app-column-rotated-two></app-column-rotated-two>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="chart-card p-2">
+                        
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="last-chart">
+            <div class="chart-card p-2" *ngIf="showChart">
+                <!-- <app-line-rotated></app-line-rotated> -->
+                <app-column-rotated-three [data]="temp_data2"></app-column-rotated-three>
+            </div>
+        </div>
+
+    </div>
+</div>

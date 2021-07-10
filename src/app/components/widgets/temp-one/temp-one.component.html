@@ -1,0 +1,56 @@
+<div class="temp-chart" [class.rtl]="('dir' | translate) === 'rtl'">
+  <!-- <mat-card class="card-menu mb-2">
+    <div class="status">
+      <i class="fa fa-circle green mx-2" *ngIf="data.power"></i>
+      <i class="fa fa-circle red mx-2" *ngIf="!data.power"></i>
+    </div>
+    <button mat-button [matMenuTriggerFor]="menu" class="w-100">
+      {{ "Dashboard.Widgets.Title" | translate }} {{data.num}}
+      <i class="fa fa-sort-down mx-2"></i>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <i class="fa fa-eye mx-2"></i>
+        مشاهده
+      </button>
+      <button mat-menu-item (click)="openDialog()">
+        <i class="fa fa-thermometer-half mx-2"></i>
+        تنظیم دما
+      </button>
+      <button mat-menu-item *ngIf="data.power" (click)="changePowerStatus()">
+        <i class="fa fa-power-off mx-2"></i>
+        خاموش کردن
+      </button>
+      <button mat-menu-item *ngIf="!data.power" (click)="changePowerStatus()">
+        <i class="fa fa-power-off mx-2"></i>
+        روشن کردن
+      </button>
+    </mat-menu>
+  </mat-card> -->
+  <div class="row text-align">
+    <div class="col-7">
+      <div class="desc px-4 mt-4">
+        <h4>{{ 'Dashboard.Widgets.Desc.Title'| translate }} {{data.num}}</h4>
+        <!-- <p>{{ "Dashboard.Widgets.Temp" | translate }} : °{{data.temp2}}</p> -->
+      </div>
+      <span class="title px-4 mt-4 d-flex" >
+        <span style="font-size: 18px;margin-top: 1em;">{{ 'Dashboard.Widgets.Desc.Temp'| translate }} : </span>
+        <span><h1 class="mx-2">{{data.temp}}°</h1></span>
+        
+      </span>
+
+    </div>
+
+    <div class="col-5">
+        <figure class="highcharts-figure polar">
+            <div id="{{data.id}}"></div>
+        </figure>
+        <div class="title-one title-w-temp">
+            <i class="fa fa-fire w-icon{{data.color}}"></i>
+        </div>
+    </div>
+</div>
+</div>
+
+
+

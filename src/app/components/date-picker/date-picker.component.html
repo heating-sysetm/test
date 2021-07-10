@@ -1,0 +1,118 @@
+<div id="date-container" class="px-4 my-4">
+  <div class="date-picker">
+    <form [formGroup]="dateForm" class="row p-0">
+      <mat-card-content class="col-lg-8 col-md-8 col-sm-8">
+        <div class="container">
+          <div class="row p-0">
+            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+              <mat-form-field
+                class="modal-fields text-center w-100 mx-2"
+                appearance="fill"
+              >
+                <input
+                  matInput
+                  [matDatepicker]="dp1"
+                  placeholder="از تاریخ"
+                  formControlName="start_time"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="dp1"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #dp1></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+              <mat-form-field
+                class="modal-fields text-center w-100 mx-2"
+                appearance="fill"
+              >
+                <input
+                  matInput
+                  [matDatepicker]="dp2"
+                  placeholder="تا تاریخ"
+                  formControlName="end_time"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="dp2"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #dp2></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+              <mat-form-field class="modal-fields text-center w-100 mx-2" appearance="fill">
+                  <input matInput
+                  [disableClick]="true"
+                  placeholder="از ساعت"
+                    aria-label="Custom buttons" formControlName="stime"
+                    [ngxTimepicker]="timepickerWithButtons" [format]="24"
+                    readonly
+                  />
+            <ngx-material-timepicker-toggle [for]="timepickerWithButtons">
+              <!-- <img  src="../../../assets/img/clock.svg"> -->
+              <i ngxMaterialTimepickerToggleIcon class="fa fa-clock"></i>
+          </ngx-material-timepicker-toggle>
+                  <ngx-material-timepicker [theme]="darkTheme"
+                    #timepickerWithButtons
+                    [cancelBtnTmpl]="cancelBtn"
+                    [confirmBtnTmpl]="confirmBtn"
+                  ></ngx-material-timepicker>
+
+                  <ng-template #cancelBtn>
+                    <button style="margin-right: 10px">بازگشت</button>
+                  </ng-template>
+                  <ng-template #confirmBtn>
+                    <button>انتخاب</button>
+                  </ng-template>
+
+              </mat-form-field>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+              <mat-form-field class="modal-fields text-center w-100 mx-2" appearance="fill">
+                  <input matInput
+                  [disableClick]="true"
+                  placeholder="تا ساعت"
+                    aria-label="Custom buttons" formControlName="etime"
+                    [ngxTimepicker]="timepickerWithButtons2" [format]="24"
+                    readonly
+                  />
+            <ngx-material-timepicker-toggle [for]="timepickerWithButtons2">
+              <!-- <img ngxMaterialTimepickerToggleIcon src="../../../assets/img/clock.svg"> -->
+              <i ngxMaterialTimepickerToggleIcon class="fa fa-clock"></i>
+          </ngx-material-timepicker-toggle>
+                  <ngx-material-timepicker [theme]="darkTheme"
+                    #timepickerWithButtons2
+                    [cancelBtnTmpl]="cancelBtn"
+                    [confirmBtnTmpl]="confirmBtn"
+                  ></ngx-material-timepicker>
+
+                  <ng-template #cancelBtn>
+                    <button style="margin-right: 10px">بازگشت</button>
+                  </ng-template>
+                  <ng-template #confirmBtn>
+                    <button>انتخاب</button>
+                  </ng-template>
+
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+      
+      <mat-card-actions class="col-lg-4 col-md-4 col-sm-4">
+        <div class="btn-div mt-4">
+          <button
+            mat-button
+            id="add-filter"
+            class="submit-btn"
+            (click)="today(); dateFilter()"
+          >
+            اعمال فیلتر
+          </button>
+        </div>
+        <!-- <button mat-raised-button color="primary">Create</button> -->
+      </mat-card-actions>
+    </form>
+  </div>
+</div>

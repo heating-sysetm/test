@@ -1,0 +1,242 @@
+<!-- <div [class.rtl]="('dir' | translate) === 'rtl'">
+  <div
+    class="example-container"
+    [class.example-is-mobile]="mobileQuery.matches">
+    <mat-toolbar color="primary" class="example-toolbar">
+      <button mat-icon-button (click)="snav.toggle()">
+        <div class="menu-toggle">&#9776;</div>
+      </button>
+      <div class="header w-100">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-6"></div>
+          <div class="col-lg-4 col-md-4 col-sm-6 text-center">
+            <div class="clock-card w-100 vertical-center">
+              <app-clock></app-clock>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6 text-center">
+            <div class="row">
+              <div class="col-5">
+                <ul id="menu">
+                  <li>
+                    <div dir="rtl" class="dark-mode text-center">
+                      <mat-slide-toggle
+                        checked="checked"
+                        (click)="toggleTheme()"
+                      >
+                        <i class="fa fa-moon mx-1"></i>
+                      </mat-slide-toggle>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="mx-2" *ngIf="notifs.length>0" [matBadge]="notifs.length">
+                      <button mat-icon-button (click)="openDialog()">
+                        <i class="fa fa-bell ico"></i>
+                      </button>
+                    </div>
+                    <div class="mx-2" *ngIf="notifs.length<1">
+                      <button mat-icon-button (click)="openDialog()">
+                        <i class="fa fa-bell ico"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="">
+                      <button
+                        mat-icon-button
+                        class="lang-menu ico"
+                        [matMenuTriggerFor]="menu"
+                      >
+                        <i class="fa fa-globe"></i>
+                      </button>
+                      <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="enLang()" class="text-center">EN</button>
+                        <button mat-menu-item (click)="faLang()" class="text-center">FA</button>
+                      </mat-menu>
+                    </div>
+                  </li> 
+                </ul>
+              </div>
+              <div class="col-7">
+                <div class="znu-card">
+                  <h4>{{ "Navbar.Title" | translate }}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-toolbar>
+
+    <mat-sidenav-container
+      class="example-sidenav-container"
+      [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
+    >
+      <mat-sidenav
+        #snav
+        mode="over"
+        [fixedInViewport]="mobileQuery.matches"
+        fixedTopGap="56"
+      >
+        <mat-nav-list class="s-sidebar__nav">
+          <ul class="h-100">
+            <li>
+              <div class="logo-container">
+                <a class="">
+                  <img
+                    class="logo img-responsive"
+                    src="../../../assets/img/logo.png"
+                  />
+                </a>
+              </div>
+            </li>
+            <li>
+              <a class="s-sidebar__nav-link" [routerLink]="['dashboard']" [routerLinkActive]="'is-active'">
+                <i class="fa fa-home"></i>{{ "Navbar.Home" | translate }}
+              </a>
+            </li>
+            <li>
+              <a class="s-sidebar__nav-link" [routerLink]="['users']" [routerLinkActive]="'is-active'">
+                <i class="fa fa-users"></i>{{ "Navbar.Users" | translate }}
+              </a>
+            </li>
+            <li>
+              <a class="s-sidebar__nav-link" [routerLink]="['calendar']" [routerLinkActive]="'is-active'">
+                <i class="fa fa-calendar-week"></i
+                >{{ "Navbar.Calendar" | translate }}
+              </a>
+            </li>
+            <li>
+              <a
+                class="s-sidebar__nav-link cursor-pointer" [routerLinkActive]="'is-active'"
+                [routerLink]="['charts']"
+              >
+                <i class="fa fa-chart-pie"></i>{{ "Navbar.Charts" | translate }}
+              </a>
+            </li>
+            <li>
+              <a
+                class="s-sidebar__nav-link cursor-pointer" [routerLinkActive]="'is-active'"
+                [routerLink]="['setting']"
+              >
+                <i class="fa fa-cog"></i>{{ "Navbar.Setting" | translate }}
+              </a>
+            </li>
+
+            <li>
+              <hr />
+              <a class="s-sidebar__nav-link" (click)="logout()">
+                <i class="fa fa-power-off"></i>{{ "Navbar.Logout" | translate }}
+              </a>
+            </li>
+          </ul>
+        </mat-nav-list>
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+</div> -->
+<div [class.rtl]="('dir' | translate) === 'rtl'">
+    <mat-drawer-container class="example-container" autosize>
+        <mat-drawer #drawer class="example-sidenav" mode="over">
+            <mat-nav-list class="s-sidebar__nav">
+                <ul class="h-100">
+                    <li>
+                        <div class="logo-container">
+                            <a class="">
+                                <img class="logo img-responsive" src="../../../assets/img/logo.png" />
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="s-sidebar__nav-link" [routerLink]="['dashboard']" [routerLinkActive]="'is-active'">
+                            <i class="fa fa-home"></i>{{ "Navbar.Home" | translate }}
+                        </a>
+                    </li>
+                    <li>
+                        <a class="s-sidebar__nav-link" [routerLink]="['users']" [routerLinkActive]="'is-active'">
+                            <i class="fa fa-users"></i>{{ "Navbar.Users" | translate }}
+                        </a>
+                    </li>
+                    <li>
+                        <a class="s-sidebar__nav-link" [routerLink]="['calendar']" [routerLinkActive]="'is-active'">
+                            <i class="fa fa-calendar-week"></i
+              >{{ "Navbar.Calendar" | translate }}
+            </a>
+          </li>
+          <li>
+            <a
+              class="s-sidebar__nav-link cursor-pointer"
+              [routerLinkActive]="'is-active'"
+              [routerLink]="['charts']"
+            >
+              <i class="fa fa-chart-pie"></i>{{ "Navbar.Charts" | translate }}
+                        </a>
+                    </li>
+                    <li>
+                        <a class="s-sidebar__nav-link cursor-pointer" [routerLinkActive]="'is-active'" [routerLink]="['setting']">
+                            <i class="fa fa-cog"></i>{{ "Navbar.Setting" | translate }}
+                        </a>
+                    </li>
+                </ul>
+            </mat-nav-list>
+        </mat-drawer>
+        <mat-toolbar color="primary" class="example-toolbar px-4">
+            <button mat-fab class="side-menu-btn menu-btn ml-4" (click)="drawer.toggle()">
+        <div class="menu-toggle">&#9776;</div>
+      </button>
+            <div class="header w-100">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="page-title">
+                            <h3><i class="fas fa-angle-right h-icon"></i> Dashboard</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-6 actions d-flex">
+                        <div>
+                            <button mat-fab class="notif-menu-btn menu-btn" (click)="openDialog()" matBadge="u">
+                <!-- <i class="fa fa-bell h-icon"></i> -->
+                <span class="typcn typcn-bell"></span>
+              </button>
+                        </div>
+
+                        <div class="mx-4">
+                            <button mat-fab class="lang-btn menu-btn" [matMenuTriggerFor]="menu">
+                {{ lang }}
+                <!-- <span class="typcn typcn-arrow-sorted-down"></span> -->
+              </button>
+                            <mat-menu #menu="matMenu">
+                                <button mat-menu-item (click)="enLang()">En</button>
+                                <button mat-menu-item (click)="faLang()">Fa</button>
+                            </mat-menu>
+                        </div>
+
+                        <div dir="ltr">
+                            <button mat-raised-button class="accmenu-btn menu-btn rounded-pill" [matMenuTriggerFor]="accmenu">
+                <!-- <i class="fa fa-user h-icon mx-2"></i> -->
+                <span class="typcn typcn-user-outline"></span>
+
+                <span class="mobile">
+                  ali nadirkhanlo
+                  <i class="fa fa-caret-down mx-2"></i>
+                </span>
+              </button>
+                            <mat-menu #accmenu="matMenu" xPosition="before" class="prof-menu">
+                                <button mat-menu-item (click)="logout()">
+                  <!-- <i class="fa fa-power-off"></i> -->
+                  <span class="typcn typcn-power"></span>
+                  {{ "Navbar.Logout" | translate }}
+                </button>
+                            </mat-menu>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-drawer-container>
+</div>
